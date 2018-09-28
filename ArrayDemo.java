@@ -47,8 +47,23 @@ public class ArrayDemo {
     return newStr;
   }
   //2b
-
-
+  public static int[][] fill2DCopy(int[][] vals){
+    int[][] a = new int[vals.length][];
+    for (int r = 0; r < vals.length; r++){
+      int l = vals[r].length;
+      int[] b = new int[l];
+      for (int c = 0; c < vals[r].length; c++){
+        if (vals[r][c] < 0) {
+          b[c] = 3;
+        }
+        else {
+          b[c] = 1;
+        }
+      }
+      a[r] = b;
+    }
+    return a;
+  }
 
   public static void main(String[] args) {
     //0a
@@ -64,6 +79,7 @@ public class ArrayDemo {
     int[][] da = {{0,1,2,3,4},{1,2,2,0,33434},{4,3,2,1},{6,6,6,6}};
     System.out.println("2a - fill2D:\n" + fill2D(da) + "\n");
     //2b
-
+    int[][] ea = {{1,-1,23,467,-23456,-32456},{45,54,0,-34,-2343,-3}};
+    System.out.println("2b - fill2DCopy:\n" + printArray(fill2DCopy(ea)) + "\n");
   }
 }
